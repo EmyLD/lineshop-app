@@ -1,0 +1,36 @@
+User 
+    ID UNIQUE
+    EMAIL
+    USERNAME
+    MDP
+
+Article
+    ID UNIQUE
+    TYPE STRING -> CONSOLE ou JEU
+    PRICE
+    NAME
+    (image?)
+
+
+
+
+
+
+BACKEND :
+-> LOGIN 
+   - GET ONE USER
+   - ADD ONE USER
+-> ARTICLE 
+   - GET ONE ARTICLE
+   - GET ALL ARTICLE 
+
+
+FRONTEND : 
+- PANIER 
+    ADD ARTICLE
+    DELETE ARTICLE
+- PAGE MAIN
+    AFFICHER FILTRE
+    AFFICHER TOUT
+- HEADER
+- FOOTER
