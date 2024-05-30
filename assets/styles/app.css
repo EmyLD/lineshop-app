@@ -1,3 +1,10 @@
 body {
-    background-color: skyblue;
+    height: 94vh;
+}
+main{
+    height: 70%;
+}
+#container_login{
+    
+    background-color: #EEEEEE;
 }
