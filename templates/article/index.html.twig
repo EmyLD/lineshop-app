@@ -4,26 +4,28 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Article index</h1>
+	<h1>Bienvenue</h1>
 
 	<div class="container">
 		<div class="row">
 			{% for article in articles %}
-				<div class="col-4">
+				<div class="col-lg-4 col-md-6 col-sm-12 mb-5">
 
-					<div class="card row" style="width: 18rem;">
-						<img src="{{ asset('picture/'~ article.id ~'.jpg') }}" class="card-img-top  fixed-height" alt="{{ article.name }}">
+					<div class="card" style="width: 18rem;">
+						<img src="{{ asset('picture/' ~ article.image) }}" class="card-img-top  fixed-height" alt="{{ article.name }}">
 						<div class="card-body">
-							<h5 class="{{ article.name }}">Card title</h5>
+							<h5 class="card-title">{{ article.name }}</h5>
 							<p class="card-text">{{ article.price }}€</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
+							<a href="#" class="btn btn-success">+</a>
 						</div>
 					</div>
 				</div>
 			{% else %}
-				<tr>
-					<td colspan="5">no records found</td>
-				</tr>
+				<div class="col-12">
+					<p class="text-center">No records found</p>
+				</div>
+
+
 			{% endfor %}
 		</div>
 	</div>
