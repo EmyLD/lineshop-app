@@ -5,7 +5,8 @@ body %} {% block main %}
 >
   <div class="w-100" id="container_login">
     <div class="container w-25 py-5">
-      <h1 class="h3 mb-4 font-weight-normal text-center">Register</h1>
+      <h1 class="h3 mb-4 font-weight-normal text-center">Register <br />
+        or <a href="{{ path('app_login') }}">Login</a></h1>
 
       {{ form_errors(registrationForm) }}
 
