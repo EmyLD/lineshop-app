@@ -17,19 +17,12 @@ class Cart
     #[ORM\Column(type: Types::ARRAY)]
     private array $articles = [];
 
-    #[ORM\Column]
-    private ?int $userId = null;
+    #[ORM\ManyToOne(inversedBy: 'carts')]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(int $id): static
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     public function getArticles(): array
@@ -37,21 +30,48 @@ class Cart
         return $this->articles;
     }
 
-    public function setArticles(array $articles): static
+    public function addArticle(Article $article, int $quantity): self
     {
-        $this->articles = $articles;
+        $articleId = $article->getId();
+
+        if (isset($this->articles[$articleId])) {
+            $this->articles[$articleId]['quantity'] += $quantity;
+        } else {
+            $this->articles[$articleId] = [
+                'article' => $article,
+                'quantity' => $quantity,
+            ];
+        }
 
         return $this;
     }
 
-    public function getUserId(): ?int
+    public function removeArticle(Article $article): self
     {
-        return $this->userId;
+        $articleId = $article->getId();
+
+        if (isset($this->articles[$articleId])) {
+            unset($this->articles[$articleId]);
+        }
+
+        return $this;
     }
 
-    public function setUserId(int $userId): static
+    public function getQuantity(Article $article): ?int
     {
-        $this->userId = $userId;
+        $articleId = $article->getId();
+
+        return $this->articles[$articleId]['quantity'] ?? null;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
