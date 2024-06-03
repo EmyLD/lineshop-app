@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %} {% block title %}Log in!{% endblock %} 
+{% block main %}
+<main
+  class="d-flex flex-column flex-grow-1 align-items-center justify-content-center"
+>
+  <div class="w-100" id="container_login">
+    <div class="container w-25 py-5">
+      <form method="post">
+        {% if error %}
+        <div class="alert alert-danger">
+          {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+        {% endif %} 
+        {% if app.user %}
+        <div class="mb-3">
+          You are logged in as {{ app.user.userIdentifier }},
+          <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+        {% else %}
+        
+          
+
+        <h1 class="h3 mb-4 font-weight-normal text-center">
+          Login <br />
+          or <a href="{{ path('app_register') }}">register here</a>
+        </h1>
+        {# <label for="username">Email</label> #}
+        <input
+          type="email"
+          value="{{ last_username }}"
+          name="_username"
+          id="username"
+          class="form-control mb-4"
+          autocomplete="email"
+          placeholder="Enter your email"
+          required
+          autofocus
+        />
+        {# <label for="password">Password</label> #}
+
+        <input
+          type="password"
+          name="_password"
+          id="password"
+          class="form-control mb-4"
+          autocomplete="current-password"
+          placeholder="and password"
+          required
+        />
+
+        <input
+          type="hidden"
+          name="_csrf_token"
+          value="{{ csrf_token('authenticate') }}"
+        />
+
+        {# Uncomment this section and add a remember_me option below your
+        firewall to activate remember me functionality. See
+        https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" name="_remember_me" /> Remember me
+          </label>
+        </div>
+        #}
+
+        <button class="btn btn-lg btn-primary w-100" type="submit">
+          Valider
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
+{% endif %}
+{% endblock %}

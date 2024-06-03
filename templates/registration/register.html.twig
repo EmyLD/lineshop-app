@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %} {% block title %}Register{% endblock %} {% block
+body %} {% block main %}
+<main
+  class="d-flex flex-column flex-grow-1 align-items-center justify-content-center"
+>
+  <div class="w-100" id="container_login">
+    <div class="container w-25 py-5">
+      <h1 class="h3 mb-4 font-weight-normal text-center">Register <br />
+        or <a href="{{ path('app_login') }}">Login</a></h1>
+
+      {{ form_errors(registrationForm) }}
+
+      {{ form_start(registrationForm) }}
+      {{
+        form_row(
+          registrationForm.email,
+
+          {
+            label: " ",
+            attr: {
+              class: "form-control ",
+              placeholder: "Enter your email"
+            }
+          }
+        )
+      }}
+      {{
+        form_row(registrationForm.plainPassword, {
+          label: " ",
+          attr: {
+            class: "form-control ",
+            placeholder: "and password"
+          }
+        })
+      }}
+      {{ form_row(registrationForm.agreeTerms, {
+            attr: {
+                class: 'mt-4 mb-3',
+            }
+        }) }}
+
+      <button type="submit" class="btn btn-lg btn-primary w-100">
+        Register
+      </button>
+      {{ form_end(registrationForm) }}
+    </div>
+  </div>
+</main>
+{% endblock %} {% endblock %}
