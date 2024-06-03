@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/article')]
+#[Route('/')]
 class ArticleController extends AbstractController
 {
     #[Route('/', name: 'app_article_index', methods: ['GET'])]
@@ -24,13 +24,11 @@ class ArticleController extends AbstractController
 
     // GET ONE ARTICLE BY ID -> A CHANGE BY TYPE NOT ID
 
-    #[Route('/{id}', name: 'app_article_show', methods: ['GET'])]
+    #[Route('/article/{id}', name: 'app_article_show', methods: ['GET'])]
     public function show(Article $article): Response
     {
         return $this->render('article/show.html.twig', [
             'article' => $article,
         ]);
     }
-
-
 }

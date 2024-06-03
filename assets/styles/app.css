@@ -13,3 +13,12 @@ body {
     width: 100%;
     /* Assurez-vous que l'image prend toute la largeur disponible */
 }
+
+.total {
+    color: white;
+}
+
+.imagepanier {
+    height: 100px;
+    width: 100px;
+}
