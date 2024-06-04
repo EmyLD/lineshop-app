@@ -3,6 +3,16 @@ body {
     display: flex;
     flex-wrap: wrap;
 
+    height: 94vh;
+}
+
+main {
+    height: 70%;
+}
+
+#container_login {
+
+    background-color: #EEEEEE;
 }
 
 .fixed-height {
