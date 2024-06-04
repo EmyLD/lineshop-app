@@ -93,11 +93,6 @@ class CartController extends AbstractController
     #[Route('/cart/checkout', name: 'cart_checkout')]
     public function checkout(Request $request, EntityManagerInterface $entityManager): Response
     {
-        // Récupère l'utilisateur, si non connecté, redirige vers la page de login
-        $user = $this->getUser();
-        if (!$user) {
-            return $this->redirectToRoute('app_login'); // <- Page de login à modifier
-        }
 
         // Récupère le panier de la session
         $cart = $request->getSession()->get('cart', []);

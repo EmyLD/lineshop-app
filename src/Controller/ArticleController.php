@@ -1,13 +1,10 @@
 <?php
-
+// AFFICHAGE TOUS LES ARTICLES OU ARTICLES PAR ID
 namespace App\Controller;
 
-use App\Entity\Article;
-use App\Form\ArticleType;
+
 use App\Repository\ArticleRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -19,16 +16,6 @@ class ArticleController extends AbstractController
     {
         return $this->render('article/index.html.twig', [
             'articles' => $articleRepository->findAll(),
-        ]);
-    }
-
-    // GET ONE ARTICLE BY ID -> A CHANGE BY TYPE NOT ID
-
-    #[Route('/article/{id}', name: 'app_article_show', methods: ['GET'])]
-    public function show(Article $article): Response
-    {
-        return $this->render('article/show.html.twig', [
-            'article' => $article,
         ]);
     }
 }
