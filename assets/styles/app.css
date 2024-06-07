@@ -10,6 +10,19 @@ main {
     height: 70%;
 }
 
+header{
+    height: 20%;
+}
+nav{
+    height: 40%;
+}
+#user_header{
+    height: 20%;
+}
+#links_header{
+    height: 40%;
+}
+
 #container_login {
 
     background-color: #EEEEEE;
