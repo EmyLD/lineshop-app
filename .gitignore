@@ -1,4 +1,4 @@
-.env
+/.env
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -25,5 +25,10 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
-node_modules
-manifest.json
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

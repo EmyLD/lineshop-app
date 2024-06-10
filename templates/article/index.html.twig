@@ -1,39 +1,33 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block title %}Article index {% endblock %}  {% block header %}{% endblock %} {% block main %}
+<main>
+<div class="container">
+  <div class="row">
+    {% for article in articles %}
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+      <div class="card" style="width: 18rem">
+        <img
+          src="{{ asset('picture/' ~ article.image) }}"
+          class="card-img-top fixed-height"
+          alt="{{ article.name }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ article.name }}</h5>
+          <p class="card-text">{{ article.price }}€</p>
+          <a
+            href="{{ path('cart_add', { id: article.id }) }}"
+            class="btn btn-success"
+            >+</a
+          >
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="col-12">
+      <p class="text-center">No records found</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</main>
+ {% endblock %}
 
-{% block title %}Article index{% endblock %}
-
-{% block body %}
-    <h1>Article index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Type</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.name }}</td>
-                <td>{{ article.price }}</td>
-                <td>{{ article.type }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_article_new') }}">Create new</a>
-{% endblock %}
