@@ -3,7 +3,10 @@
 {% block title %}Mon Panier
 {% endblock %}
 
-{% block body %}
+{% block header %}{% endblock %}
+
+{% block main %}
+<main>
 	<div class="container">
 		<h1 class="my-4">Mon Panier</h1>
 		<table class="table">
@@ -37,4 +40,5 @@
 		</div>
 		<a href="{{ path('cart_checkout') }}" class="btn btn-primary">Procéder au paiement</a>
 	</div>
+</main>
 {% endblock %}
