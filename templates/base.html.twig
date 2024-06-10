@@ -58,7 +58,7 @@
             <div
               class="d-flex justify-content-center align-items-center border border-dark px-2 text-green px-4 fs-3"
             >
-              <a href="#" class="text-green"
+              <a href="{{ path('cart_index') }}" class="text-green"
                 ><i class="fa-solid fa-cart-shopping"></i
               ></a>
             </div>
@@ -131,7 +131,7 @@
         <div class="d-flex justify-content-center">
           <p>
             You are right here: {% block page_pathway %}
-            <a href="{{ path('app_article_index') }}">Home</a> >> Login {%
+            <a href="{{ path('app_article_index') }}">Home</a> >> currentPage {%
             endblock %}
           </p>
         </div>
